@@ -1,8 +1,8 @@
 import { Tree } from "./binary_search_tree.js";
 
-const tree = new Tree([]);
+const tree = new Tree([1, 2, 3, 4, 5, 6, 7, 8]);
 
-const node = tree.buildTree([1, 2, 3, 4, 5, 6, 7, 8]);
+const node = tree.intialize();
 
 const prettyPrint = (node, prefix = "", isLeft = true) => {
   if (node === null) {
