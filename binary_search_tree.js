@@ -33,8 +33,8 @@ export class Tree {
 }
 
 export class Node {
-  constructor(value) {
-    this.value = value;
+  constructor(data) {
+    this.data = data;
     this.rightNode = null;
     this.leftNode = null;
   }
