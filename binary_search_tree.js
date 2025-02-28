@@ -35,11 +35,46 @@ export class Tree {
 
     return root;
   }
+
+  insert(value) {
+    const newNode = new Node(value);
+
+    const rootNode = this.buildTree(this.array);
+
+    if (!rootNode) return newNode;
+
+    let parentNode;
+    let currentNode = rootNode;
+
+    //determine the node that newNode will
+    //be attached to
+    while (currentNode) {
+      parentNode = currentNode;
+
+      if (value < currentNode.value) {
+        currentNode = currentNode.leftNode;
+      } else if (value > currentNode.value) {
+        currentNode = currentNode.rightNode;
+      } else {
+        //the value already exists.
+        return rootNode;
+      }
+    }
+
+    //attach newNode
+    if (value < parentNode.value) {
+      parentNode.leftNode = newNode;
+    } else {
+      parentNode.rightNode = newNode;
+    }
+
+    return rootNode;
+  }
 }
 
 export class Node {
-  constructor(data) {
-    this.data = data;
+  constructor(value) {
+    this.value = value;
     this.rightNode = null;
     this.leftNode = null;
   }

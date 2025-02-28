@@ -1,8 +1,12 @@
 import { Tree } from "./binary_search_tree.js";
 
-const tree = new Tree([1, 2, 3, 4, 5, 6, 7, 8]);
+const tree = new Tree([1, 2, 3, 4, 5]);
 
-const node = tree.intialize();
+// const node = tree.intialize();
+
+const node = tree.insert(12);
+
+console.log(tree);
 
 const prettyPrint = (node, prefix = "", isLeft = true) => {
   if (node === null) {
@@ -11,7 +15,7 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
   if (node.rightNode !== null) {
     prettyPrint(node.rightNode, `${prefix}${isLeft ? "│   " : "    "}`, false);
   }
-  console.log(`${prefix}${isLeft ? "└── " : "┌── "}${node.data}`);
+  console.log(`${prefix}${isLeft ? "└── " : "┌── "}${node.value}`);
   if (node.leftNode !== null) {
     prettyPrint(node.leftNode, `${prefix}${isLeft ? "    " : "│   "}`, true);
   }
