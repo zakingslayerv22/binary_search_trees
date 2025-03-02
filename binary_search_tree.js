@@ -1,11 +1,13 @@
 export class Tree {
   constructor(array) {
     this.array = array;
-    this.intialize();
+    this.rootNode = null;
+    this.initialize();
   }
 
-  intialize() {
-    return this.buildTree(this.array);
+  initialize() {
+    this.rootNode = this.buildTree(this.array);
+    return this.rootNode;
   }
 
   prepArray(array) {
