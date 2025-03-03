@@ -4,10 +4,10 @@ const tree = new Tree([1, 2, 3, 4, 5]);
 
 const node = tree.initialize();
 
-const node2 = tree.insert(12);
-const node3 = tree.insert(18);
+tree.insert(12);
+tree.insert(18);
 
-console.log(node);
+console.log(tree);
 
 const prettyPrint = (node, prefix = "", isLeft = true) => {
   if (node === null) {

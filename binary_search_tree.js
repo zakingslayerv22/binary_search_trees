@@ -41,7 +41,7 @@ export class Tree {
   insert(value) {
     const newNode = new Node(value);
 
-    const rootNode = this.buildTree(this.array);
+    const rootNode = this.rootNode;
 
     if (!rootNode) return newNode;
 
