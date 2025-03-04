@@ -1,12 +1,11 @@
 export class Tree {
-  constructor(array) {
+  constructor(array = []) {
     this.array = array;
-    this.rootNode = null;
+    this.rootNode = this.array.length > 0 ? this.buildTree(this.array) : null;
     this.initialize();
   }
 
   initialize() {
-    this.rootNode = this.buildTree(this.array);
     return this.rootNode;
   }
 
@@ -43,7 +42,9 @@ export class Tree {
 
     const rootNode = this.rootNode;
 
-    if (!rootNode) return newNode;
+    if (!rootNode) {
+      return (this.rootNode = newNode);
+    }
 
     let parentNode;
     let currentNode = rootNode;

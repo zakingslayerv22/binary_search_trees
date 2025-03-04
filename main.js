@@ -1,11 +1,12 @@
 import { Tree } from "./binary_search_tree.js";
 
-const tree = new Tree([1, 2, 3, 4, 5]);
+const array1 = [1, 2, 3, 4, 5, 6];
+const array2 = [1, 2];
+const tree = new Tree();
 
 const node = tree.initialize();
 
-tree.insert(12);
-tree.insert(18);
+const insertedNode = tree.insert(18);
 
 console.log(tree);
 
@@ -22,4 +23,4 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
   }
 };
 
-prettyPrint(node);
+prettyPrint(insertedNode);
