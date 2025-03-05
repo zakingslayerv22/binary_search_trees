@@ -99,6 +99,22 @@ export class Tree {
       } else if (parentNode.rightNode === targetNode) {
         parentNode.rightNode = null;
       }
+    } else if (!targetNode.leftNode || !targetNode.rightNode) {
+      //target has at least one node
+      let replacementNode = !targetNode.leftNode
+        ? targetNode.rightNode
+        : targetNode.leftNode;
+
+      //if target node is root node (it has no parent)
+      if (!parentNode) {
+        return (this.rootNode = replacementNode);
+      }
+
+      if (parentNode.leftNode === targetNode) {
+        parentNode.leftNode = replacementNode;
+      } else {
+        parentNode.rightNode = replacementNode;
+      }
     }
   }
 }
