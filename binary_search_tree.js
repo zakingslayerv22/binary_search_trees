@@ -73,6 +73,34 @@ export class Tree {
 
     return rootNode;
   }
+
+  delete(value) {
+    let parentNode = null;
+    let targetNode = this.rootNode;
+
+    //tranverse the tree to find the target node
+    while (targetNode && targetNode.value !== value) {
+      parentNode = targetNode;
+      if (value < targetNode.value) {
+        targetNode = targetNode.leftNode;
+      } else if (value > targetNode.value) {
+        targetNode = targetNode.rightNode;
+      }
+    }
+
+    if (!targetNode) {
+      return this.rootNode;
+    }
+
+    if (!targetNode.leftNode && !targetNode.rightNode) {
+      //leaf node case
+      if (parentNode.leftNode === targetNode) {
+        parentNode.leftNode = null;
+      } else if (parentNode.rightNode === targetNode) {
+        parentNode.rightNode = null;
+      }
+    }
+  }
 }
 
 export class Node {
