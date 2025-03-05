@@ -115,7 +115,35 @@ export class Tree {
       } else {
         parentNode.rightNode = replacementNode;
       }
+    } else {
+      //target node has 2 children
+
+      let parent = null;
+      let successor = targetNode.rightNode;
+
+      while (successor.leftNode) {
+        parent = successor;
+        successor = successor.leftNode;
+      }
+
+      // no traversal. parent is null.
+      // No parent.
+      // it did not get to the while loop
+      // because the inorder successor
+      // is the target's right node.
+      // The target's right node
+      // does not have any left
+      // to tranverse. No minimum
+      // element. if(!parent)
+      if (parent) {
+        parent.leftNode = successor.rightNode;
+      } else {
+        targetNode.rightNode = successor.rightNode;
+      }
+
+      targetNode.value = successor.value;
     }
+    return this.rootNode;
   }
 }
 
