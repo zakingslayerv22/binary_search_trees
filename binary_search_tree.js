@@ -145,6 +145,19 @@ export class Tree {
     }
     return this.rootNode;
   }
+
+  find(value) {
+    let targetNode = this.rootNode;
+
+    while (targetNode && targetNode.value !== value) {
+      if (value < targetNode.value) {
+        targetNode = targetNode.leftNode;
+      } else if (value > targetNode.value) {
+        targetNode = targetNode.rightNode;
+      }
+    }
+    return targetNode;
+  }
 }
 
 export class Node {
