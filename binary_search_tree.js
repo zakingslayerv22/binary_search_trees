@@ -158,6 +158,29 @@ export class Tree {
     }
     return targetNode;
   }
+
+  levelOrder(callback) {
+    if (!callback || typeof callback !== "function") {
+      throw new Error(
+        "This method requires a callback function as an argument."
+      );
+    }
+
+    if (!this.rootNode) return;
+
+    const queue = [];
+
+    queue.push(this.rootNode);
+
+    while (queue.length > 0) {
+      let currentNode = queue.shift();
+      callback(currentNode);
+
+      if (currentNode.leftNode) queue.push(currentNode.leftNode);
+      if (currentNode.rightNode) queue.push(currentNode.rightNode);
+    }
+    console.log("Completed level order traversal!");
+  }
 }
 
 export class Node {
