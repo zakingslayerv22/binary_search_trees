@@ -2,7 +2,7 @@ import { Tree } from "./binary_search_tree.js";
 
 const array1 = [1, 2, 3, 4, 5, 6];
 const array2 = [1, 2, 3];
-const tree = new Tree(array1);
+const tree = new Tree(array2);
 
 const node = tree.initialize();
 
@@ -23,6 +23,8 @@ tree.levelOrder(printValue);
 // tree.levelOrder((node) => {
 //   console.log(node.value);
 // });
+
+tree.preOrder(printValue);
 
 const prettyPrint = (node, prefix = "", isLeft = true) => {
   if (node === null) {

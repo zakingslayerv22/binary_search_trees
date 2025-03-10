@@ -181,6 +181,22 @@ export class Tree {
     }
     console.log("Completed level order traversal!");
   }
+
+  preOrder(callback, currentNode = this.rootNode) {
+    if (!callback || typeof callback !== "function") {
+      throw new Error(
+        "This method requires a callback function as an argument."
+      );
+    }
+
+    if (!currentNode) return;
+
+    callback(currentNode);
+
+    this.preOrder(callback, currentNode.leftNode);
+
+    this.preOrder(callback, currentNode.rightNode);
+  }
 }
 
 export class Node {
