@@ -26,7 +26,9 @@ function printValue(node) {
 
 // tree.preOrder(printValue);
 
-tree.inOrder(printValue);
+// tree.inOrder(printValue);
+
+tree.postOrder(printValue);
 
 const prettyPrint = (node, prefix = "", isLeft = true) => {
   if (node === null) {

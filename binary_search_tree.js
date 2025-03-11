@@ -219,6 +219,25 @@ export class Tree {
 
     this.#inOrderHelper(callback, this.rootNode);
   }
+
+  #postOrderHelper(callback, currentNode) {
+    if (!currentNode) return;
+
+    this.#postOrderHelper(callback, currentNode.leftNode);
+    this.#postOrderHelper(callback, currentNode.rightNode);
+
+    callback(currentNode);
+  }
+
+  postOrder(callback) {
+    if (!callback || typeof callback !== "function") {
+      throw new Error(
+        "This method requires a callback function as an argument."
+      );
+    }
+
+    this.#postOrderHelper(callback, this.rootNode);
+  }
 }
 
 export class Node {
