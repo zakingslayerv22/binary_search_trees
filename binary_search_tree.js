@@ -238,6 +238,17 @@ export class Tree {
 
     this.#postOrderHelper(callback, this.rootNode);
   }
+
+  height(node) {
+    if (node === null) {
+      return -1;
+    }
+
+    const leftHeight = this.height(node.leftNode);
+    const rightHeight = this.height(node.rightNode);
+
+    return Math.max(leftHeight, rightHeight) + 1;
+  }
 }
 
 export class Node {

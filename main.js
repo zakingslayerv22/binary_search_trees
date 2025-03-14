@@ -10,6 +10,10 @@ const insertedNode = tree.insert(19);
 
 const deleteNode = tree.delete(4);
 
+const nodeFive = tree.find(5);
+
+console.log(tree.height(nodeFive));
+
 // console.log(tree.find(3));
 
 console.log(tree);
@@ -28,7 +32,7 @@ function printValue(node) {
 
 // tree.inOrder(printValue);
 
-tree.postOrder(printValue);
+// tree.postOrder(printValue);
 
 const prettyPrint = (node, prefix = "", isLeft = true) => {
   if (node === null) {
