@@ -249,6 +249,25 @@ export class Tree {
 
     return Math.max(leftHeight, rightHeight) + 1;
   }
+
+  depth(node) {
+    let currentNode = this.rootNode;
+    let edges = 0;
+
+    if (!node || !this.find(node.value)) return null;
+
+    while (currentNode && currentNode !== node) {
+      if (currentNode.value > node.value) {
+        currentNode = currentNode.leftNode;
+      } else if (currentNode.value < node.value) {
+        currentNode = currentNode.rightNode;
+      }
+
+      edges += 1;
+    }
+
+    return edges;
+  }
 }
 
 export class Node {

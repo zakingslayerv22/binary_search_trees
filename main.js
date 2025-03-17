@@ -12,7 +12,11 @@ const deleteNode = tree.delete(4);
 
 const nodeFive = tree.find(5);
 
-console.log(tree.height(nodeFive));
+console.log(nodeFive);
+
+// console.log(tree.height(nodeFive));
+
+console.log(tree.depth(nodeFive));
 
 // console.log(tree.find(3));
 
