@@ -268,6 +268,24 @@ export class Tree {
 
     return edges;
   }
+
+  _isBalancedHelper(node) {
+    if (!node) return true;
+
+    const leftHeight = this.height(node.leftNode);
+    const rightHeight = this.height(node.rightNode);
+
+    if (Math.abs(leftHeight - rightHeight) > 1) return false;
+
+    return (
+      this._isBalancedHelper(node.leftNode) &&
+      this._isBalancedHelper(node.rightNode)
+    );
+  }
+
+  isBalanced() {
+    return this._isBalancedHelper(this.rootNode);
+  }
 }
 
 export class Node {

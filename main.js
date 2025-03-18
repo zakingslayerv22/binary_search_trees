@@ -20,6 +20,8 @@ console.log(tree.depth(nodeFive));
 
 // console.log(tree.find(3));
 
+console.log(tree.isBalanced());
+
 console.log(tree);
 
 function printValue(node) {
