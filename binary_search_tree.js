@@ -289,6 +289,18 @@ export class Tree {
   isBalanced() {
     return this.#isBalancedHelper(this.rootNode);
   }
+
+  rebalance() {
+    const newArray = [];
+
+    if (!this.isBalanced()) {
+      this.inOrder((node) => {
+        newArray.push(node.value);
+      });
+
+      return (this.rootNode = this.buildTree(newArray));
+    }
+  }
 }
 
 export class Node {
