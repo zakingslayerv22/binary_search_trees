@@ -200,6 +200,7 @@ export class Tree {
     }
 
     this.#preOrderHelper(callback, this.rootNode);
+    console.log("Completed preorder traversal!");
   }
 
   #inOrderHelper(callback, currentNode) {
@@ -218,6 +219,7 @@ export class Tree {
     }
 
     this.#inOrderHelper(callback, this.rootNode);
+    console.log("Completed inorder traversal!");
   }
 
   #postOrderHelper(callback, currentNode) {
@@ -237,6 +239,7 @@ export class Tree {
     }
 
     this.#postOrderHelper(callback, this.rootNode);
+    console.log("Completed postorder traversal!");
   }
 
   height(node) {
@@ -269,7 +272,7 @@ export class Tree {
     return edges;
   }
 
-  _isBalancedHelper(node) {
+  #isBalancedHelper(node) {
     if (!node) return true;
 
     const leftHeight = this.height(node.leftNode);
@@ -278,13 +281,13 @@ export class Tree {
     if (Math.abs(leftHeight - rightHeight) > 1) return false;
 
     return (
-      this._isBalancedHelper(node.leftNode) &&
-      this._isBalancedHelper(node.rightNode)
+      this.#isBalancedHelper(node.leftNode) &&
+      this.#isBalancedHelper(node.rightNode)
     );
   }
 
   isBalanced() {
-    return this._isBalancedHelper(this.rootNode);
+    return this.#isBalancedHelper(this.rootNode);
   }
 }
 
