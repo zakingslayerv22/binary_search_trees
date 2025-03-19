@@ -35,6 +35,8 @@ console.log(tree.isBalanced());
 console.log("Rebalancing tree..");
 const rebalancedTree = tree.rebalance();
 
+console.log(tree.isBalanced());
+
 console.log(tree.levelOrder(printValue));
 console.log(tree.preOrder(printValue));
 console.log(tree.inOrder(printValue));
