@@ -53,4 +53,4 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
   }
 };
 
-prettyPrint(rebalance);
+prettyPrint(rebalancedTree);
