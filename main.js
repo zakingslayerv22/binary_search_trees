@@ -1,44 +1,44 @@
 import { Tree } from "./binary_search_tree.js";
 
-const array1 = [1, 2, 3, 4, 5, 6];
-const array2 = [1, 2, 3];
-const tree = new Tree(array1);
+function generateRandomArray() {
+  const array = [];
+  for (let i = 0; i < 10; i++) {
+    array.push(Math.floor(Math.random() * 100) + 1);
+  }
+  return array;
+}
+
+const tree = new Tree(generateRandomArray());
 
 const node = tree.initialize();
 
-const insertedNode = tree.insert(19);
-
-const deleteNode = tree.delete(4);
-
-const nodeFive = tree.find(5);
-
-console.log(nodeFive);
-
-// console.log(tree.height(nodeFive));
-
-console.log(tree.depth(nodeFive));
-
-// console.log(tree.find(3));
-
 console.log(tree.isBalanced());
-
-console.log(tree);
 
 function printValue(node) {
   console.log(node.value);
 }
 
-// tree.levelOrder(printValue);
+console.log(tree.levelOrder(printValue));
+console.log(tree.preOrder(printValue));
+console.log(tree.inOrder(printValue));
+console.log(tree.postOrder(printValue));
 
-// tree.levelOrder((node) => {
-//   console.log(node.value);
-// });
+//unbalance the tree
+console.log("Unbalancing tree..");
 
-// tree.preOrder(printValue);
+const unbalancingNumbers = [101, 107, 200, 205];
 
-// tree.inOrder(printValue);
+unbalancingNumbers.forEach((number) => tree.insert(number));
 
-// tree.postOrder(printValue);
+console.log(tree.isBalanced());
+
+console.log("Rebalancing tree..");
+const rebalancedTree = tree.rebalance();
+
+console.log(tree.levelOrder(printValue));
+console.log(tree.preOrder(printValue));
+console.log(tree.inOrder(printValue));
+console.log(tree.postOrder(printValue));
 
 const prettyPrint = (node, prefix = "", isLeft = true) => {
   if (node === null) {
@@ -53,4 +53,4 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
   }
 };
 
-prettyPrint(node);
+prettyPrint(rebalance);
